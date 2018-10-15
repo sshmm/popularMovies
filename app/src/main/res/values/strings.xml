@@ -3,5 +3,6 @@
     <string name="title">title</string>
     <string name="popularity">Popularity</string>
     <string name="votes_average">Votes Average</string>
-    <string name="api_key"></string>
+    <string name="movie_thumbnail">Movie Thumbnail</string>
+    <string name="connection_error">Please check your internet connection!</string>
 </resources>

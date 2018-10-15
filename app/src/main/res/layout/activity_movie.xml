@@ -11,55 +11,52 @@
 
         <TextView
             android:id="@+id/movie_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/medium_dim"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:textSize="50sp"
-            android:visibility="visible"
-            tools:text="Movie" />
+            android:layout_marginBottom="@dimen/small_margin"
+            android:background="#018786"
+            android:gravity="center_vertical"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/header_size" />
 
         <ImageView
             android:id="@+id/movie_poster"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="@dimen/medium_dim"
+            android:layout_height="@dimen/large_dim"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/movie_title" />
+            android:layout_below="@+id/movie_title"
+            android:layout_marginTop="@dimen/small_margin"
+            android:contentDescription="@string/movie_thumbnail"
+            android:scaleType="fitXY" />
 
         <TextView
             android:id="@+id/movie_year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/movie_title"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="@dimen/image_to_text"
+            android:layout_marginTop="@dimen/small_margin"
             android:layout_toEndOf="@+id/movie_poster"
-            android:textSize="25sp" />
+            android:textSize="@dimen/normal_size" />
 
         <TextView
             android:id="@+id/movie_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/movie_year"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="@dimen/image_to_text"
             android:layout_toEndOf="@+id/movie_poster"
-            android:textSize="25sp" />
+            android:textSize="@dimen/normal_size" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/movie_rating"
-            android:layout_marginLeft="10dp"
-            android:layout_toEndOf="@+id/movie_poster"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/movie_descritpion"
+            android:id="@+id/movie_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/movie_poster"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="20dp" />
+            android:layout_marginEnd="@dimen/image_to_text"
+            android:layout_marginStart="@dimen/image_to_text"
+            android:layout_marginTop="@dimen/medium_margin" />
     </RelativeLayout>
 </ScrollView>

@@ -29,7 +29,7 @@ public class MovieActivity extends AppCompatActivity {
 
 
         posterView = findViewById(R.id.movie_poster);
-        descriptionView = findViewById(R.id.movie_descritpion);
+        descriptionView = findViewById(R.id.movie_description);
         ratingsView = findViewById(R.id.movie_rating);
         titleView = findViewById(R.id.movie_title);
         dateView = findViewById(R.id.movie_year);
@@ -48,7 +48,6 @@ public class MovieActivity extends AppCompatActivity {
         movie = MoviesAdapter.getMovieData(position);
         imageUrl = "http://image.tmdb.org/t/p/w185/" + movie.getPosterPath();
         populateUI(movie);
-        posterView = findViewById(R.id.movie_poster);
         if (!TextUtils.isEmpty(imageUrl)) {
             Picasso.with(this)
                     .load(imageUrl)
@@ -70,11 +69,12 @@ public class MovieActivity extends AppCompatActivity {
         titleView = findViewById(R.id.movie_title);
         titleView.setText(movie.getTitle());
 
-        descriptionView = findViewById(R.id.movie_descritpion);
+        descriptionView = findViewById(R.id.movie_description);
         descriptionView.setText(movie.getDescription());
 
         ratingsView = findViewById(R.id.movie_rating);
-        ratingsView.setText(movie.getVoteAverage());
+        String vote_average = movie.getVoteAverage() + "/10";
+        ratingsView.setText(vote_average);
 
         dateView = findViewById(R.id.movie_year);
         dateView.setText(movie.getReleaseDate());

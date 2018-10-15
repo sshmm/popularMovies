@@ -6,7 +6,9 @@
         android:id="@+id/popularity_sort"
         android:orderInCategory="1"
         android:title="@string/popularity"
-        app:showAsAction="never"></item>
+        app:showAsAction="never">
+
+    </item>
 
     <item
         android:id="@+id/voting_sort"

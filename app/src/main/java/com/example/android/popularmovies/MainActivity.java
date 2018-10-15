@@ -1,6 +1,9 @@
 package com.example.android.popularmovies;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.android.popularmovies.MoviesAdapter.MoviesAdapterOnClickHandler;
 import com.example.android.popularmovies.utils.JsonUtils;
@@ -23,13 +27,16 @@ public class MainActivity extends AppCompatActivity implements MoviesAdapterOnCl
 
     private RecyclerView recyclerView;
     private MoviesAdapter moviesAdapter;
+    private TextView connectionView;
     private String moviesData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        connectionView = findViewById(R.id.tv_connection_error);
         recyclerView = findViewById(R.id.recycler_view);
         GridLayoutManager layoutManager
                 = new GridLayoutManager(this, 2);
@@ -39,7 +46,13 @@ public class MainActivity extends AppCompatActivity implements MoviesAdapterOnCl
         moviesAdapter = new MoviesAdapter(this, MainActivity.this);
 
         recyclerView.setAdapter(moviesAdapter);
-        makeMoviesDbSearchQuery("pop");
+        if (isOnline()) {
+            makeMoviesDbSearchQuery("pop");
+        } else {
+            recyclerView.setVisibility(View.GONE);
+            connectionView.setVisibility(View.VISIBLE);
+        }
+
     }
 
     @Override
@@ -81,6 +94,13 @@ public class MainActivity extends AppCompatActivity implements MoviesAdapterOnCl
 
     }
 
+    public boolean isOnline() {
+        ConnectivityManager cm =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnectedOrConnecting();
+    }
+
     public class MovieDbQueryTask extends AsyncTask<URL, Void, String> {
         @Override
         protected String doInBackground(URL... urls) {
@@ -108,5 +128,4 @@ public class MainActivity extends AppCompatActivity implements MoviesAdapterOnCl
             }
         }
     }
-
 }

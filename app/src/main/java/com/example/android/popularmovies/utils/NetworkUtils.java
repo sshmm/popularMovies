@@ -1,9 +1,6 @@
 package com.example.android.popularmovies.utils;
 
-import android.content.res.Resources;
 import android.net.Uri;
-
-import com.example.android.popularmovies.R;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,7 +13,7 @@ public class NetworkUtils {
 
     private static final String MOVIEDB_BASE_URL =
             "https://api.themoviedb.org/3/discover/movie";
-    private static final String API_KEY = Resources.getSystem().getString(R.string.api_key);
+    private static final String API_KEY = "";
     private static final String POPULARITY_DESC = "popularity.desc";
     private static final String VOTES_DESC = "vote_average.desc";
 

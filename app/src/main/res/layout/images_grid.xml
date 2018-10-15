@@ -8,6 +8,8 @@
         android:id="@+id/movie_thumbnail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="2dp"
         android:adjustViewBounds="true"
+        android:contentDescription="@string/movie_thumbnail"
         android:scaleType="centerCrop" />
 </LinearLayout>
