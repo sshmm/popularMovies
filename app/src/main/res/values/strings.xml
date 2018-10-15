@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Popular Movies</string>
+    <string name="title">title</string>
+    <string name="popularity">Popularity</string>
+    <string name="votes_average">Votes Average</string>
+    <string name="api_key"></string>
+</resources>
